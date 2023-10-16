@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\ShowController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +42,18 @@ Route::prefix('admin')->group(function(){
 });
 
 
+Route::prefix('user')->group(function(){
+    Route::get('/users', function(){
+        return '<h3> Użytkownicy </h3>';
+    });
+    
+    Route::get('/home', function(){
+        return '<h3> Strona Domowa </h3>';
+    });
+    
+});
+
+
 Route::redirect('/admin', '/admin/home');
+
+Route::get('show', [ShowController::class, 'show']);
